@@ -69,6 +69,7 @@ public class UsuarioServiceTests {
 		when(repository.findById(any(UsuarioId.class))).thenReturn(Optional.ofNullable(null));
 		when(repository.save(any(Usuario.class))).thenReturn(usuario);
 		service.cadastraUsuario(usuarioRequest);
+		assertEquals("ericaokamura", service.cadastraUsuario(usuarioRequest).getNomeUsuario());
 	}
 	
 	@Test
@@ -83,6 +84,7 @@ public class UsuarioServiceTests {
 		when(repository.findById(any(UsuarioId.class))).thenReturn(Optional.of(usuario));
 		when(repository.save(any(Usuario.class))).thenReturn(usuario);
 		service.alteraUsuario(usuarioRequest);
+		assertEquals("ericaokamura", service.alteraUsuario(usuarioRequest).getNomeUsuario());
 	}
 	
 	@Test
