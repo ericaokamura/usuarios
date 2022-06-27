@@ -66,7 +66,7 @@ public class UsuarioServiceTests {
 	 
 	@Test
 	public void testa_cadastra_usuario_com_sucesso() throws UsuarioExistenteException {
-		when(repository.findById(new UsuarioId("erica.okamura@yahoo.com.br","ericaokamura"))).thenReturn(Optional.ofNullable(null));
+		when(repository.findById(any(UsuarioId.class))).thenReturn(Optional.ofNullable(null));
 		when(repository.save(any(Usuario.class))).thenReturn(usuario);
 		service.cadastraUsuario(usuarioRequest);
 	}
