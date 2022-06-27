@@ -82,9 +82,11 @@ public class UsuarioServiceTests {
 	@Test
 	public void testa_altera_usuario_com_sucesso() throws UsuarioNaoEncontradoException {
 		when(repository.findById(any(UsuarioId.class))).thenReturn(Optional.of(usuario));
+		usuario.setNome("Erica Okamura Sato");
 		when(repository.save(any(Usuario.class))).thenReturn(usuario);
+		usuarioRequest.setNome("Erica Okamura Sato");
 		service.alteraUsuario(usuarioRequest);
-		assertEquals("ericaokamura", service.alteraUsuario(usuarioRequest).getNomeUsuario());
+		assertEquals("Erica Okamura Sato", service.alteraUsuario(usuarioRequest).getNome());
 	}
 	
 	@Test
